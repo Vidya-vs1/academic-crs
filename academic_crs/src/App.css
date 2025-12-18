@@ -1,0 +1,94 @@
+body.light-mode {
+  --text-main: #1a202c;
+  --text-secondary: #4a5568;
+  --bg-image: url('./assets/light.jpg');
+  --bg-color: #f7fafc;
+  --input-bg: #ffffff;
+  --input-text: #000000;
+  --input-border: #cccccc;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --nav-base: #e2e8f0;
+  --nav-pill: #cbd5e0;
+  --nav-text: #1a202c;
+  --nav-active-text: #000000;
+}
+
+body.dark-mode {
+  --text-main: #ffffff;
+  --text-secondary: #a0aec0;
+  --bg-image: url('./assets/dark.png');
+  --bg-color: #1a202c;
+  --input-bg: #2d3748;
+  --input-text: #ffffff;
+  --input_TEXT: #ffffff;
+  --input-border: #4a5568;
+  --card-bg: rgba(26, 32, 44, 0.8);
+  --nav-base: #2d3748;
+  --nav-pill: #4a5568;
+  --nav-text: #e2e8f0;
+  --nav-active-text: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: background-image 0.3s ease-in-out, color 0.3s ease-in-out;
+  color: var(--text-main);
+}
+
+#root {
+  min-height: 100vh;
+  backdrop-filter: blur(2px);
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+  background-color: var(--card-bg);
+  color: var(--text-main);
+}
+
+.item-card {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.read-the-docs {
+  color: #888;
+}

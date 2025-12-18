@@ -1,0 +1,59 @@
+:root {
+  --background-dark: #0b0e21;
+  --background-light: #1a1f33;
+  --text-primary: #f2f5ff;
+  --primary-brand: #007bff;
+  --primary-brand-hover: #0056b3;
+  --border-color: #4a5568; /* A darker border for better theme consistency */
+  --input-background: #2d3748;
+}
+
+body {
+  margin: 0;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  background: var(--primary-brand);
+  color: white;
+  font-size: 1rem; /* Use rem for scalable font sizes */
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+button:hover {
+  background: var(--primary-brand-hover);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--primary-brand);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.25);
+}
+
+textarea,
+input {
+  font-family: inherit;
+  font-size: 1rem; /* Use rem for better accessibility and scalability */
+  border-radius: 6px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  padding: 10px; /* Apply consistent padding */
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+  border-color: var(--primary-brand);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Ensure textarea is resizable only vertically to prevent layout breaks */
+textarea {
+  resize: vertical;
+}

@@ -1,0 +1,18 @@
+# ===== Frontend (Node / Vite) =====
+node_modules/
+dist/
+
+# ===== Backend (Python / FastAPI) =====
+venv/
+__pycache__/
+*.pyc
+
+# ===== Environment / Secrets =====
+.env
+.env.*
+*.key
+*.pem
+
+# ===== OS junk =====
+.DS_Store
+Thumbs.db

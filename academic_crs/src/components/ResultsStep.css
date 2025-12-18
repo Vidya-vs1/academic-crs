@@ -1,0 +1,385 @@
+/* ResultsStep.css */
+
+.results-container {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 1400px;
+  margin: auto;
+  padding: 1rem 4rem 2rem;
+}
+
+@media (max-width: 768px) {
+  .results-container {
+    padding: 1rem;
+  }
+}
+
+.results-container h1,
+.results-container h3,
+.results-container h4 {
+  color: var(--text-main);
+}
+
+.results-container h1 {
+  font-size: 3.5rem !important;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.results-container h2 {
+  font-size: 2.8rem !important;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+.results-container h3 {
+  font-size: 1.8rem !important;
+  font-weight: 600;
+  border-bottom: 1px solid var(--input-border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.results-container h4 {
+  font-size: 1.5rem !important;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+.results-container a {
+  color: var(--primary-brand, #007bff);
+  text-decoration: underline;
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+  pointer-events: auto;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.results-container a:hover {
+  color: var(--primary-brand-hover, #0056b3);
+  text-decoration: none;
+}
+
+/* Section descriptions */
+.section-description {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  text-align: left;
+  margin-bottom: 1.2rem;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Rerun Agents Box */
+.rerun-box {
+  background-color: transparent;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  margin-top: 2rem;
+}
+
+.rerun-box h4 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+.rerun-box p {
+  color: var(--text-secondary);
+  opacity: 0.9;
+}
+
+.rerun-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.feedback-textarea {
+  width: 100%;
+  min-height: 80px;
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  background: transparent;
+  color: var(--input-text);
+  font-family: inherit;
+  resize: vertical;
+  font-size: 1rem;
+}
+
+/* Centering container for the new nav */
+.nav-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* Content Area */
+.tab-content {
+  background-color: transparent;
+  padding: 20px;
+  min-height: 300px;
+  position: relative;
+  z-index: 5;
+}
+
+.tab-content p {
+  color: var(--text-main);
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.tab-content strong {
+  color: var(--text-main);
+  font-weight: bold;
+}
+
+.tab-content pre {
+  background: var(--input-bg);
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+}
+
+/* Enhanced Item cards (for programs, scholarships, etc.) */
+.item-card {
+  background: var(--card-bg);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--input-border);
+  color: var(--text-main);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.item-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Special styling for program cards with dotted separators */
+.item-card.program-card {
+  border-left: 6px solid var(--primary-brand, #007bff);
+  padding-left: 2rem;
+}
+
+.item-card h4 {
+  margin: 0;
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.item-card p {
+  margin: 0.4rem 0;
+  font-size: 1.1rem;
+}
+
+/* Enhanced Clickable URLs */
+.item-card a {
+  color: var(--primary-brand, #007bff);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: rgba(0, 123, 255, 0.1);
+  border: 1px solid var(--primary-brand, #007bff);
+  transition: all 0.2s ease;
+  display: inline-block;
+  margin: 4px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.item-card a:hover {
+  background-color: var(--primary-brand, #007bff);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 123, 255, 0.4);
+}
+
+/* Enhanced URL styling for different types */
+.url-university {
+  background-color: rgba(40, 167, 69, 0.1);
+  border-color: #28a745;
+  color: #28a745;
+}
+
+.url-university:hover {
+  background-color: #28a745;
+  box-shadow: 0 3px 8px rgba(40, 167, 69, 0.4);
+}
+
+.url-scholarship {
+  background-color: rgba(255, 193, 7, 0.1);
+  border-color: #ffc107;
+  color: #856404;
+}
+
+.url-scholarship:hover {
+  background-color: #ffc107;
+  color: #000;
+  box-shadow: 0 3px 8px rgba(255, 193, 7, 0.4);
+}
+
+.url-external {
+  position: relative;
+}
+
+.url-external::after {
+  content: " ↗";
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+/* Make URLs more prominent in specific contexts */
+.website-link {
+  font-size: 1.1rem !important;
+  padding: 8px 16px !important;
+  font-weight: 700 !important;
+  margin: 8px 0 !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+}
+
+.website-link::before {
+  content: "🌐";
+  font-size: 1em;
+}
+
+/* Global link enhancements for better clickability */
+a {
+  transition: all 0.2s ease !important;
+}
+
+/* API key links styling */
+a[href*="openrouter"], a[href*="serper"] {
+  color: #4fd1c5 !important;
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+  padding: 2px 4px !important;
+  border-radius: 3px !important;
+  background-color: rgba(79, 209, 197, 0.1) !important;
+  border: 1px solid #4fd1c5 !important;
+}
+
+a[href*="openrouter"]:hover, a[href*="serper"]:hover {
+  background-color: #4fd1c5 !important;
+  color: white !important;
+  text-decoration: none !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(79, 209, 197, 0.3);
+}
+
+/* Enhanced pros-cons section */
+.pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+.pros-cons ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.pros-cons li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.career-score {
+  font-weight: bold;
+  margin-top: 1.5rem !important;
+  font-size: 1.1rem;
+  padding: 0.8rem;
+  background: var(--primary-brand, #007bff);
+  color: white;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* Profile Grid */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 12px;
+  border: 2px solid var(--input-border);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-grid h4 {
+  color: var(--primary-brand, #007bff);
+  border-bottom: 2px solid var(--primary-brand, #007bff);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.profile-grid p {
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+/* Q&A Section */
+.qa-section textarea {
+  width: 100%;
+  min-height: 100px;
+  margin-bottom: 15px;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 1.1rem;
+}
+
+.qa-answer {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid var(--input-border);
+  color: var(--text-main);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.qa-answer h4 {
+  color: var(--primary-brand, #007bff);
+  margin-top: 0;
+}
+
+/* Markdown container styling */
+.markdown-container p {
+  margin-bottom: 0.5rem;
+  line-height: 1.8;
+}
