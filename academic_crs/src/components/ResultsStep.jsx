@@ -5,6 +5,7 @@ import PillNav from "./PillNav.jsx";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 const Typewriter = ({ text, speed = 50, delay = 0, tag: Tag = 'span', style, className }) => {
   const [displayText, setDisplayText] = useState('');
@@ -75,7 +76,7 @@ export default function ResultsStep() {
 
   // Helper to run a single agent step
   const runAgentStep = async (stepIndex, inputData) => {
-      const response = await fetch(`${API_BASE_URL}/run-agent`, {
+      const response = await fetch(`${API_BASE}/run-agent`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
