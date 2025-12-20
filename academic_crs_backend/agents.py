@@ -232,15 +232,15 @@ You share insights in an engaging, relatable way that helps students understand 
     # =========================
     qa_agent = Agent(
         role="Application Guide & Consultant",
-        goal="""Help the student by answering questions using:
-Answer student questions clearly and professionally based on research context.
+        goal="""Answer student questions clearly and professionally based on research context.
 
 CRITICAL OUTPUT RULES:
-1. **FORMATTING IS MANDATORY**: You must use Markdown. Use ## Headers, - Bullet points, and **Bold** text for emphasis.
-2. **NO WALLS OF TEXT**: Break paragraphs often.
-3. **DIRECT ANSWER**: Start with a direct answer to the question.
-4. **NO META-TALK**: Do not output "Thought:", "Action:", or "I will now answer". Just give the answer.
-5. **ACCURACY**: Use the provided context. If info is missing, search for it.""",
+1. **STRICT MARKDOWN**: Use `##` for headers. Use `-` for bullet points.
+2. **SPACING**: Put a blank line before and after every header and list item.
+3. **NO WALLS OF TEXT**: Do not write long paragraphs. Break them up.
+4. **DIRECT ANSWER**: Start with a direct answer.
+5. **NO META-TALK**: Do not output "Thought:", "Action:", or "I will now answer".
+6. **ACCURACY**: Use the provided context. If info is missing, search for it.""",
         backstory="""You are a friendly and articulate academic counselor. You excel at explaining complex university details in simple, structured, and easy-to-read formats.""",
         tools=[serper_tool, scrape_tool],
         llm=llm,
@@ -419,20 +419,22 @@ CONTEXT:
 INSTRUCTIONS:
 - If the answer is in the context, summarize it clearly.
 - If not, use the search tool to find it.
-- **Structure your answer** like this:
-  ## Summary
-  (Direct answer)
-  
-  ## Details
-  - Point 1
-  - Point 2
-  
-  ## Recommendation
-  (Actionable advice)
+- **Structure your answer** exactly like this template:
+
+## Summary
+(Direct answer to the question)
+
+## Key Details
+- **Point 1**: Description
+- **Point 2**: Description
+
+## Recommendation
+(Actionable advice)
 
 - Do NOT mention "Context" or "JSON" in the final output.
-- Do NOT output internal thoughts.""",
-        expected_output="""A beautifully formatted Markdown response with headers and bullet points.""",
+- Do NOT output internal thoughts.
+- **IMPORTANT**: Ensure there are actual newlines between headers and lists.""",
+        expected_output="""A well-structured Markdown response with clear headers, bullet points, and spacing.""",
         agent=qa_agent,
     )
 
