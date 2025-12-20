@@ -50,7 +50,7 @@ export default function ResultsStep() {
         reviews: agentResults.reviews,
       };
 
-      const response = await fetch("http://127.0.0.1:8000/qa", {
+      const response = await fetch(`${API_BASE}/qa`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -75,7 +75,7 @@ export default function ResultsStep() {
 
   // Helper to run a single agent step
   const runAgentStep = async (stepIndex, inputData) => {
-      const response = await fetch("http://127.0.0.1:8000/run-agent", {
+      const response = await fetch(`${API_BASE_URL}/run-agent`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
