@@ -1,4 +1,11 @@
 import os
+
+# Set telemetry opt-outs before importing any crewai or litellm modules
+os.environ["OTEL_SDK_DISABLED"] = "true"
+os.environ["CREWAI_DISABLE_TELEMETRY"] = "true"
+os.environ["CREWAI_TELEMETRY_OPT_OUT"] = "true"
+os.environ["LITELLM_TELEMETRY"] = "False"
+
 from fastapi import FastAPI, Form
 from pydantic import BaseModel
 from typing import Dict, Any, Optional
@@ -13,7 +20,6 @@ from agents import (
 )
 from utils import extract_info_from_text
 import json
-
 app = FastAPI()
 
 # ==========================================
@@ -56,8 +62,8 @@ class AdminModelRequest(BaseModel):
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173", "*"],
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )

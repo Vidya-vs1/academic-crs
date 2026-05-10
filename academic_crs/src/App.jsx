@@ -18,6 +18,7 @@ function App() {
     theme,
     toggleTheme,
     studentProfile,
+    setStudentProfile,
     setAgentResults,
     setProcessing,
     resetApiKeys
@@ -37,10 +38,29 @@ function App() {
         setApiError(null); // Clear previous errors
         try {
           const res = await runAgent(currentAgent, studentProfile, apiKeys.openrouter, apiKeys.serper);
+          
+          if (res?.error) {
+            throw new Error(`Backend Error: ${res.error}`);
+          }
+          
           const raw = res?.result;
           
           const keys = ["normalized_profile", "matched_programs", "ranked_programs", "scholarships", "reviews"];
           setAgentResults(prev => ({ ...prev, [keys[currentAgent]]: raw }));
+
+          setStudentProfile(prev => {
+            let parsed = raw;
+            if (typeof raw === 'string') {
+              try {
+                // Strip markdown code blocks before parsing
+                const cleaned = raw.replace(/^```(?:json)?\n|\n```$/gm, '').trim();
+                parsed = JSON.parse(cleaned);
+              } catch (e) {
+                // Not JSON, keep as string
+              }
+            }
+            return { ...prev, [keys[currentAgent]]: parsed };
+          });
 
           // Proceed to next agent
           setTimeout(() => setCurrentAgent(prev => prev + 1), 800);
@@ -48,18 +68,9 @@ function App() {
           console.error(`Agent ${currentAgent} failed:`, err);
           setProcessing(false);
           
-          // Check for API-related errors
+          // Display error in UI
           const errorMessage = err.message || "Unknown error";
-          if (
-            errorMessage.includes("401") ||
-            errorMessage.includes("403") ||
-            errorMessage.includes("unauthorized") ||
-            errorMessage.includes("invalid") ||
-            errorMessage.includes("API") ||
-            errorMessage.includes("key")
-          ) {
-            setApiError(errorMessage);
-          }
+          setApiError(errorMessage);
         }
       };
       executeAgent();

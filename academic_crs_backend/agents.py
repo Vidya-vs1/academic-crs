@@ -232,17 +232,16 @@ You share insights in an engaging, relatable way that helps students understand 
     # =========================
     qa_agent = Agent(
         role="Application Guide & Consultant",
-        goal="""Help the student by answering questions using:
-1) The research context (all previous agents' findings) as primary source.
-2) Web search ONLY if the context does not include the required information.
+        goal="""Answer student questions clearly and professionally based on research context.
 
-Priorities:
-- Be specific, practical, and correct.
-- Provide clear action steps (what to do next).
-- Use official university or government sources when available.
-- Never fabricate exact cutoffs, fees, or legal rules; if unsure, say so and suggest where to check.""",
-        backstory="""You are an expert admission and application coach. You know everything 
-the system has already analyzed, and fetch missing pieces online only when needed.""",
+CRITICAL OUTPUT RULES:
+1. **STRICT MARKDOWN**: Use `##` for headers. Use `-` for bullet points.
+2. **SPACING**: Put a blank line before and after every header and list item.
+3. **NO WALLS OF TEXT**: Do not write long paragraphs. Break them up.
+4. **DIRECT ANSWER**: Start with a direct answer.
+5. **NO META-TALK**: Do not output "Thought:", "Action:", or "I will now answer".
+6. **ACCURACY**: Use the provided context. If info is missing, search for it.""",
+        backstory="""You are a friendly and articulate academic counselor. You excel at explaining complex university details in simple, structured, and easy-to-read formats.""",
         tools=[serper_tool, scrape_tool],
         llm=llm,
         verbose=False,
@@ -409,17 +408,33 @@ TEXT:
 def create_qa_task(qa_agent, question: str, context: str):
     qa_task = Task(
         description=f"""
-You are a helpful academic advisor.
+Analyze the provided context and answer the student's question.
 
 QUESTION:
-{question}
+"{question}"
 
-CONTEXT (JSON, previous agents' outputs):
+CONTEXT:
 {context}
 
-Use the context first; only use tools if you truly need missing information.
-Your answer must be practical, concise, and honest about uncertainty.""",
-        expected_output="""A concise, practical and accurate answer for the student.""",
+INSTRUCTIONS:
+- If the answer is in the context, summarize it clearly.
+- If not, use the search tool to find it.
+- **Structure your answer** exactly like this template:
+
+## Summary
+(Direct answer to the question)
+
+## Key Details
+- **Point 1**: Description
+- **Point 2**: Description
+
+## Recommendation
+(Actionable advice)
+
+- Do NOT mention "Context" or "JSON" in the final output.
+- Do NOT output internal thoughts.
+- **IMPORTANT**: Ensure there are actual newlines between headers and lists.""",
+        expected_output="""A well-structured Markdown response with clear headers, bullet points, and spacing.""",
         agent=qa_agent,
     )
 
