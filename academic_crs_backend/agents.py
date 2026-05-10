@@ -138,23 +138,26 @@ Example structure:
 From the matcher's results, evaluate and rank the top programs (aim for top 5–6),
 whether they are undergraduate or postgraduate.
 
-For each recommended program, clearly present:
-- Course Name
-- University Name
-- Degree Level
-- Duration
-- Country / Location
-- Tuition Fee: (Extract the 'Tuition per year' from the context. State the actual yearly fee and currency. If "Not available", state "Check website").
-- Living Cost: (Extract the 'Living cost per year' from the context. State the estimated yearly cost, especially for international students).
-- Program Description (Write a detailed 3-4 sentence description highlighting curriculum and unique features).
-- University Website URL (Include the link provided by the matcher or find it).
-- Pros (2–4 points)
-- Cons (1–3 points)
-- Admission Difficulty: (Mention acceptance rates or required exams like JEE/SAT).
-- Career Alignment Score (1–10)
+CRITICAL FORMATTING RULE: DO NOT use a table format. Present each program using clear Markdown headers (e.g., `### 1. [Course Name] at [University Name]`) followed by a structured bulleted list for readability.
 
-After listing the ranked programs, give a brief final recommendation summary
-explaining which one or two programs are the best fit and WHY.
+For each recommended program, include these exact bullet points:
+- **Course & University**: [Course Name], [University Name]
+- **Level & Duration**: [Degree Level], [Duration]
+- **Location**: [Country / Location]
+- **Tuition Fee**: [Actual yearly fee/currency or "Check website"]
+- **Living Cost**: [Estimated yearly cost]
+- **Program Description**: [3-4 sentence description highlighting curriculum]
+- **Website**: [University Website URL]
+- **Pros**: 
+  - [Pro 1]
+  - [Pro 2]
+- **Cons**: 
+  - [Con 1]
+  - [Con 2]
+- **Admission Difficulty**: [Acceptance rates or required exams]
+- **Career Alignment Score**: [1-10]
+
+After listing the ranked programs, give a brief final recommendation summary explaining which one or two programs are the best fit and WHY.
 
 You MUST base all facts on the matcher's output; do NOT invent new hard facts or fees.
 exact fee numbers or admission cutoffs. Be critical about "Reach" schools.
